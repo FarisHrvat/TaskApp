@@ -1,38 +1,27 @@
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-
-import React, { useState } from "react";
-
-function TaskApp() {
-  const [tasks, setTasks] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setTasks([...tasks, { task: inputValue, date: new Date() }]);
-    setInputValue("");
-  };
-
+function App() {
   return (
-    <div>
-      <h1>Task Application</h1>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Enter task"
-        />
-        <button type="submit">Add Task</button>
-      </form>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            {task.task} - {task.date.toLocaleString()}
-          </li>
-        ))}
-      </ul>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
     </div>
   );
 }
-
-export default TaskApp;
